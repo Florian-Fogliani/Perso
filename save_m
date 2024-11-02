@@ -1,0 +1,128 @@
+
+/*static void eval_rec(char *c)
+{
+    DIR *d = opendir(c);
+    if (d == NULL)
+    {
+        fprintf(stderr, "myfind: %s: No such file or directory\n", c);
+        exit(1);
+    }
+    struct dirent *f;
+    struct stat f1;
+    f = readdir(d);
+    f = readdir(d);
+    while ((f = readdir(d)) != NULL)
+    {
+        for (; f; f = readdir(d))
+        {
+            char b[1500];
+            snprintf(b, 1500, "%s/%s", c, f->d_name);
+            if (f->d_name[0] != '.')
+            {
+                printf("%s/%s\n", c, f->d_name);
+            }
+            if (lstat(b, &f1) == 1)
+            {
+                fprintf(stderr,
+                        "myfind: Error to obtain file information in eval\n");
+                exit(1);
+            }
+            if (f->d_name[0] != '.' && S_ISDIR(f1.st_mode)
+                && !(S_ISLNK(f1.st_mode)))
+            {
+                eval_rec(b);
+            }
+        }
+    }
+    if (closedir(d) == -1)
+    {
+        fprintf(stderr, "myfind: Error in closing a directory\n");
+        exit(1);
+    }
+}
+
+void eval(char *c)
+{
+    printf("%s\n", c);
+    if (c[strlen(c)-1] == '/')
+    {
+        c[strlen(c)-1] = '\0';
+    }
+    struct stat f1;
+    if (lstat(c, &f1) == 1)
+    {
+                fprintf(stderr,
+                        "myfind: Error to obtain file information in eval\n");
+                exit(1);
+    }
+    if (S_ISDIR(f1.st_mode))
+    {
+        eval_rec(c);
+    }
+}
+
+static void eval_no_ope_rec(char *c, struct ast *ast, int *ret_val, int s_l)
+{
+    DIR *d = opendir(c);
+    if (d == NULL)
+    {
+        fprintf(stderr, "myfind: %s: No such file or directory\n", c);
+        exit(1);
+    }
+    struct dirent *f;
+    struct stat f1;
+    while ((f = readdir(d)) != NULL)
+    {
+        for (; f; f = readdir(d))
+        {
+            char b[1500];
+            snprintf(b, 1500, "%s/%s", c, f->d_name);
+            if (f->d_name[0] != '.' && ast_eval(ast, b, ret_val, s_l))
+            {
+                printf("%s/%s\n", c, f->d_name);
+            }
+            if (stat(b, &f1) == 1)
+            {
+                fprintf(stderr,
+                        "myfind: Error to obtain file information in eval\n");
+                exit(1);
+            }
+            if (f->d_name[0] != '.' && S_ISDIR(f1.st_mode)
+                && !(S_ISLNK(f1.st_mode)))
+            {
+                eval_no_ope_rec(b,ast,ret_val,s_l);
+            }
+        }
+    }
+    if (closedir(d) == -1)
+    {
+        fprintf(stderr, "myfind: Error in closing a directory\n");
+        exit(1);
+    }
+}
+
+
+void eval_no_ope(char *c, struct ast *ast, int *ret_val, int s_l)
+{
+    if (ast_eval(ast, c, ret_val, s_l))
+    {
+        printf("%s\n", c);
+    }
+    if (c[strlen(c)-1] == '/')
+    {
+        c[strlen(c)-1] = '\0';
+    }
+    struct stat f1;
+    if (stat(c, &f1) == 1)
+    {
+                fprintf(stderr,
+                        "myfind: Error to obtain file information in eval\n");
+                exit(1);
+    }
+    if (S_ISDIR(f1.st_mode))
+    {
+        eval_no_ope_rec(c, ast, ret_val, s_l);
+    }
+}*/
+
+
