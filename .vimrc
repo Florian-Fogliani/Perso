@@ -1,0 +1,1 @@
+/home/florian.fogliani/afs/.confs/vimrc
